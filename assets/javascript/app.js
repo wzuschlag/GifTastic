@@ -25,8 +25,8 @@ $(document).ready(function()
 	function displayGif()
 	{
 		$('#gifView').empty();
-		var topic = $(this).attr('data-name');
 
+		var topic = $(this).attr('data-name');
 		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=B1spPx9YkcBmoa3km0mtVQKa1E0qSYul&limit=10";
 
 		$.ajax({
@@ -38,7 +38,7 @@ $(document).ready(function()
 			// Creates a generic div to hold the topics
 			var topicDiv = $('<div class="topicImage">');
 
-			for (i=0; i < response.data.length; i++) 
+			for (i = 0; i < response.data.length; i++) 
 			{
 				var stillImage = response.data[i].images.fixed_width_still.url;	//Get the still url to use			
 				var playImage = response.data[i].images.fixed_width.url; //Get the animate url to use
@@ -46,8 +46,8 @@ $(document).ready(function()
 				// Creates an html element to display the rating and the images
 				var pRating = $("<p>").text("Rating: " + rating.toUpperCase());
 				var image = $("<img>").attr({"src":stillImage,"playsrc":playImage,"stillsrc":stillImage});								
-				topicDiv.append(pRating, image);
 				image.addClass('clickedGif');
+				topicDiv.append(pRating, image);				
 				$('#gifView').append(topicDiv);
 			}	
 		});
@@ -56,11 +56,11 @@ $(document).ready(function()
 	function flipGif()
 	{
 		var playImage = $(this).attr('playsrc'); // Starts playing the Image 
-		var stopImage = $(this).attr('stillsrc'); // Stops playing the Image
+		var stillImage = $(this).attr('stillsrc'); // Stops playing the Image
 		
 		if ($(this).attr('playsrc') == $(this).attr('src')) //flip between start/stop images
 		{
-			$(this).attr('src', stopImage);
+			$(this).attr('src', stillImage);
 		}
 		else
 		{
