@@ -2,6 +2,15 @@ body{
 	background-color: #359fe675;
 }
 
+h1{
+  font-family: 'Bungee', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: navy;
+  text-align: center;
+  padding-top: 4%;
+}
+
 .topicsButton{
 	margin: 5px;
 	background-color: aqua;
